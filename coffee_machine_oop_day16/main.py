@@ -1,4 +1,6 @@
 # 11/6/2023
+# same functionality of coffee machine
+# this time using object-oriented programming
 
 from menu import Menu, MenuItem
 from coffee_maker import CoffeeMaker
