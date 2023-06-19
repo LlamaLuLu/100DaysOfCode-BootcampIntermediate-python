@@ -6,7 +6,7 @@ class Ball(Turtle):
         super().__init__()
         self.penup()
         self.shape("circle")
-        self.color("purple")
+        self.color("white")
         self.x_move = 10
         self.y_move = 10
         self.goto(0, 0)
