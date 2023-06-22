@@ -33,8 +33,9 @@ while game_is_on:
 
     # successfully crossed
     if player.reached_finish_line():
+        time.sleep(0.3)
         player.reset()
-        car_manager.speed_up()
+        car_manager.reset()
         scoreboard.level_up()
 
 screen.exitonclick()
