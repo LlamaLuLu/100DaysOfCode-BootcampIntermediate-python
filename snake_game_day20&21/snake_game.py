@@ -3,6 +3,8 @@ from snake import Snake
 from food import Food
 from scoreboard import Score
 import time
+import random
+DIRECTIONS = [0, 90, 180, 270]
 
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -36,13 +38,15 @@ while game_is_on:
 
     # TODO: 6. detect collision with wall
     if not ((-305 < snake.head.xcor() < 290) and (-290 < snake.head.ycor() < 305)):
-        game_is_on = False
-        score.game_over()
+        score.reset()
+        snake.reset()
+        snake.head.setheading(random.choice(DIRECTIONS))
 
     # TODO: 7. detect collision with tail
     for seg in snake.segments[1:]:
         if snake.head.distance(seg) < 10:
-            game_is_on = False
-            score.game_over()
+            score.reset()
+            snake.reset()
+            snake.head.setheading(random.choice(DIRECTIONS))
 
 screen.exitonclick()
