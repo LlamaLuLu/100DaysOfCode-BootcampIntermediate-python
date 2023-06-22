@@ -18,10 +18,9 @@ screen.setup(width=725, height=491)  # change screensize to only fit image
 screen.tracer(0)
 
 data = pandas.read_csv("50_states.csv")
-states = data.state.to_list()
+all_states = data.state.to_list()
 
 answer_state = screen.textinput(title="Guess the State", prompt="What's a state's name? ")
-score = 0
 correct = []
 
 game_on = True
@@ -32,17 +31,16 @@ while game_on:  # use loop to allow user keep guessing
         win = t.Turtle()
         win.hideturtle()
         win.write("WELL DONE! You knew all the states!")
+        screen.update()
     elif answer_state.title() == "Exit":
         game_on = False
         # shows states to learn
-        all_states = pandas.read_csv("50_states.csv")
-        all_states_list = all_states.state.to_list()
         for state in correct:
-            all_states_list.remove(state)
-        data = pandas.DataFrame(all_states_list)
+            all_states.remove(state)
+        data = pandas.DataFrame(all_states)
         data.to_csv("states_to_learn.csv")
     else:
-        if answer_state.title() in states:
+        if answer_state.title() in all_states:
             if answer_state.title() in correct:  # duplicate answer
                 answer_state = screen.textinput(title=f"{len(correct)}/50 States Correct",
                                                 prompt="You've already guessed that.\nWhat's another state's name? ")
