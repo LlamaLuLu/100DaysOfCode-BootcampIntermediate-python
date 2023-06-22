@@ -1,3 +1,5 @@
+# 20/6/2023
+
 # TODO: Create a letter using starting_letter.txt
 
 with open("./Input/Names/invited_names.txt") as name_list:
